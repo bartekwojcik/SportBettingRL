@@ -1,0 +1,6 @@
+match_id	league	match_date	home_team	home_score	away_team	away_score	avg_odds_home_win	avg_odds_draw	avg_odds_away_win	max_odds_home_win	max_odds_draw	max_odds_away_win	top_bookie_home_win	top_bookie_draw	top_bookie_away_win	n_odds_home_win	n_odds_draw	n_odds_away_win
+170088	England: Premier League	01/01/2006	Liverpool	0	Chelsea	1	2.9944	3.1944	2.2256	3.2	3.25	2.29	Paddy Power	Sportingbet	Expekt	9	9	9
+170089	England: Premier League	02/01/2005	Fulham	3	Crystal Palace	1	1.9456	3.2333	3.6722	2.04	3.3	4.15	Pinnacle Sports	bet-at-home	Expekt	9	9	9
+170090	England: Premier League	01/02/2005	Aston Villa	1	Blackburn	0	1.8522	3.2611	4.0144	2	3.4	4.5	Pinnacle Sports	Paddy Power	Sportingbet	9	9	9
+170091	England: Premier League	01/02/2005	Bolton	1	West Brom	1	1.6122	3.4133	5.4722	1.67	3.57	6.27	Coral	Pinnacle Sports	Pinnacle Sports	9	9	9
+170092	Suckland: Premier League	03/03/2005	Charlton	1	Arsenal	3	5.9878	3.4778	1.5567	7	3.6	1.62	Expekt	Paddy Power	bet365	9	9	9
