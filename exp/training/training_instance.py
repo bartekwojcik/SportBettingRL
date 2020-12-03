@@ -17,10 +17,14 @@ from exp.training.params import TrainingParams
 
 
 class TrainingInstance:
+
     def _get_best_or_last_model_path(
         self, last_vecnorm_path, best_vecnorm_path, is_normalized
     ):
         """
+        Depending on whether there was any best model (if training was too short there will be none) pics right model
+        paths to be loaded
+
         :return: path to model and to vecpath
         """
         best_model_path = os.path.join(self.BEST_MODEL_PATH, "best_model.zip")
@@ -72,6 +76,13 @@ class TrainingInstance:
         self,
         training_params:TrainingParams
     ) -> Union[Tuple[float, float, float], Tuple[List[float], List[int], float]]:
+        """
+        Starts training
+
+        :param training_params:
+        :return: mean_reward, std_reward, training_time_minutes
+        """
+
 
         self._set_paths(training_params.results_save_folder)
 

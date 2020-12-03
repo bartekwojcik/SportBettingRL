@@ -119,6 +119,22 @@ class TestTrainEnvCreator:
         video_recording_path: str = None,
         n_train_env: int = 8,
     ) -> Tuple[VecEnv, VecEnv, VecEnv]:
+        """
+        prepares and returns train/eval/test environments
+
+        :param env_creating_function: functions that returns gym.Env instance
+        :param norm_obs: normalize observations
+        :param norm_reward: normalize rewards
+        :param norm_actions: normalize actions (-1,1) - only for continuous actions
+        :param frame_stack: stack frames (add past states to current states)
+        :param episode_max_steps:
+        :param train_env_parameters_dict:
+        :param eval_env_parameters_dict:
+        :param test_env_parameters_dict:
+        :param video_recording_path: if not None, then add video recording for testing. Requires environment to implement render function
+        :param n_train_env: number of train environments (for multithreading)
+        :return: train/eval/test environments
+        """
 
         train_env = self._create_train_env(
             env_creating_function=env_creating_function,

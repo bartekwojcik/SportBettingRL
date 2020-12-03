@@ -116,7 +116,15 @@ def TRPO_hyperparameters():
     }
 
 
-def validate_parameters(algo, param_dicts, original_env):
+def validate_parameters(algo, param_dicts, original_env)->bool:
+    """
+    Validates if selected parameters work with selected algorithms. Avoids problems once training starts
+
+    :param algo:
+    :param param_dicts:
+    :param original_env:
+    :return:
+    """
     algo_name = algo.__name__
     for params in param_dicts:
         try:
@@ -129,8 +137,14 @@ def validate_parameters(algo, param_dicts, original_env):
     return True
 
 
-def validate_algorithm_names(chosen_keys, existing_keys):
-    # throws exception if there is a name of algorithm that is not registered
+def validate_algorithm_names(chosen_keys:List[str], existing_keys:List[str])->bool:
+    """
+    throws exception if there is a name of algorithm that is not registered
+
+    :param chosen_keys: list of selected algorithms
+    :param existing_keys: list of all reghistered algorithms
+    :return:
+    """
     for chosen in chosen_keys:
         if not (chosen in existing_keys):
             raise ValueError(f"{chosen} algorithm is not registered")
@@ -163,9 +177,11 @@ class AlgorithmRegistry:
         orignal_env: gym.Env, chosen_algorithms: List[str], validate=True
     ) -> Dict[str, Any]:
         """
-        :param orignal_env:
-        :param chosen_algorithms:
-        :param validate:
+        Returns dot product of hyperparamters and their respective algorithms for grid search
+
+        :param orignal_env: gym.Env instance
+        :param chosen_algorithms: list of selected algorithms
+        :param validate: turns off or on validation of hyper-parameters against selected algorithms
         :return: Dictionary of algorithm_name->List[Dict[hyperparameters]].
         Example:
         {'A2C':
@@ -179,7 +195,7 @@ class AlgorithmRegistry:
         if validate:
 
             validate_algorithm_names(
-                chosen_algorithms, AlgorithmRegistry.get_algorithms_map().keys()
+                chosen_algorithms, list(AlgorithmRegistry.get_algorithms_map().keys())
             )
             print("algorithms validated")
 
@@ -203,6 +219,16 @@ class AlgorithmRegistry:
         verbose: int,
         algorithm_hyperparameters: Dict[str, Any],
     ) -> BaseRLModel:
+        """
+        Creates an instance of a selected algorhtms
+
+        :param algorithm_key: algorithm name
+        :param env: stable-baseline vectorized algorithms
+        :param tensorboard_path:
+        :param verbose:
+        :param algorithm_hyperparameters:
+        :return:
+        """
         algorithm_class = AlgorithmRegistry.get_algorithms_map()[algorithm_key][0]
 
         algorithm = algorithm_class(

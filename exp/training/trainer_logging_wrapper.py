@@ -8,6 +8,10 @@ from exp.utils.path_utils import save_json_to_file
 
 
 class LoggingTrainer:
+    """
+    Logs inputs and outputs to file and neptune.ai platform
+    """
+
     def __init__(
         self,
         trainer: Trainer,

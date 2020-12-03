@@ -38,7 +38,10 @@ def experiment_main(
     path_to_keras_model: str,
     log: bool = True,
     path_to_data: str = None,
-):
+)->None:
+    """
+    Does all the unholy preparation
+    """
     (
         env_creating_function,
         env_name,

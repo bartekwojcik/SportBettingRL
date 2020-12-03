@@ -10,7 +10,12 @@ import os
 
 class Trainer:
     def prepare(self, params: ConfigParams):
+        """
+        Prepares parameters required for training
 
+        :param params:
+        :return:
+        """
         print(f"Algorithm: {params.algorithm_key}")
         print(f"Hyperparamters: {params.algorithm_hyperparameters}")
 
@@ -74,6 +79,12 @@ class Trainer:
         )
 
     def train(self, **kwargs):
+        """
+        Starts training procedure
+
+        :param kwargs:
+        :return:
+        """
 
         trainer = TrainingInstance()
         mean_reward, std_reward, training_time_minutes = trainer.train(

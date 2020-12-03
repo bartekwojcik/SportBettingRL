@@ -6,6 +6,15 @@ import os
 
 
 def plot_error_bar(names: List[str], means: List[float], stds: List[float]) -> plt.Axes:
+    """
+    Simple box plot for comparing different algorithms
+
+    :param names: list of strings
+    :param means: list of floats
+    :param stds: list od standard deviations
+    :return:
+    """
+
 
     fig, ax = plt.subplots()
     ax.errorbar(range(len(names)), means, yerr=stds, barsabove=True, fmt="rD")
@@ -23,6 +32,14 @@ def plot_error_bar(names: List[str], means: List[float], stds: List[float]) -> p
 def plot_results_error_bar(
     results: List[Dict[str, Any]], directory_to_save: str, file_name: str
 ):
+    """
+    Saves boxplot to file
+
+    :param results:
+    :param directory_to_save:
+    :param file_name:
+    :return:
+    """
 
     names = [row["name"] for row in results]
     means = [row["mean"] for row in results]

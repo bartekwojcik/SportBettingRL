@@ -27,6 +27,15 @@ class SimpleExperimentEvaluator(BaseExperimentEvaluator):
         n_eval_episodes: int,
         render_test: bool,
     ) -> Union[Tuple[float, float], Tuple[List[float], List[int]]]:
+        """
+        Evaluates algorithms using stable-baselines implementation
+
+        :param model:
+        :param test_env:
+        :param n_eval_episodes:
+        :param render_test:
+        :return:
+        """
         mean_reward, std_reward = evaluate_policy(
             model, test_env, n_eval_episodes=n_eval_episodes, render=render_test
         )

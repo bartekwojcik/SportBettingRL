@@ -12,8 +12,16 @@ from betting_env.load_keras_model import load_model
 from betting_env.environment.keras_wrapper import KerasWrapperEnv
 from betting_env.environment.normalize_state_wrapper import NormalizeStateWrapper
 
-#todo extract this part to experiment part
-def get_env_function(PATH_TO_MODEL,PATH_TO_DATA=None, ):
+
+def get_env_function(PATH_TO_MODEL:str,PATH_TO_DATA:str=None, )->BettingEnv:
+    """
+    Creates and loads Betting environment
+
+    :param PATH_TO_MODEL: path to keras model
+    :param PATH_TO_DATA: path to CSV file
+    :return: BettingEnv instance with wrappers
+    """
+
 
     PATH_TO_DATA = (
         r"C:\Users\kicjo\Documents\Repositories\RLExperiment\resources\closing_odds_trimmed.csv"
