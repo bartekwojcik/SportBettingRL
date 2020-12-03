@@ -13,19 +13,19 @@ def parse():
 
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--save_path", type=str, default=BARTEKS_DOCUMENTS,
+        "--save_path", type=str, default=BARTEKS_DOCUMENTS, help='Folder where results will be saved'
     )
     parser.add_argument(
-        "--data_path", type=str, default=BARTEKS_DATA,
+        "--data_path", type=str, default=BARTEKS_DATA, help='path to CSV file with data'
     )
     parser.add_argument(
-        "--model_path", type=str, default=BARTEKS_KERAS_PATH,
+        "--model_path", type=str, default=BARTEKS_KERAS_PATH,help='path to keras model for winner prediction'
     )
     parser.add_argument(
-        "--video_record_test", type=str2bool, default=True,
+        "--video_record_test", type=str2bool, default=True, help='select for video recording when testing. Environment must have render function implemented'
     )
     parser.add_argument(
-        "--render_test", type=str2bool, default=True,
+        "--render_test", type=str2bool, default=True,help='select to render when testing. Environment must have render function implemented'
     )
     parser.add_argument("--validate_env_render", type=str2bool, default=True)
     parser.add_argument(
@@ -48,25 +48,25 @@ def parse():
         "--norm_obs",
         type=str2bool,
         default=False,
-        help="observation normalisation wrapper",
+        help="add observation normalisation wrapper",
     )
     parser.add_argument(
         "--norm_reward",
         type=str2bool,
         default=False,
-        help="reward normalisation wrapper",
+        help="add reward normalisation wrapper",
     )
     parser.add_argument(
         "--norm_actions",
         type=str2bool,
         default=False,
-        help="[-1,1] actions normalisation wrapper for contious actions",
+        help="add [-1,1] actions normalisation wrapper for contious actions",
     )
     parser.add_argument(
         "--frame_stack",
         type=str2bool,
         default=False,
-        help="adding 4 past observations as an input",
+        help="add 4 past observations as an input when training",
     )
     parser.add_argument(
         "--algorithms",
@@ -80,8 +80,8 @@ def parse():
     #DDPG - ValueError: Error: the model does not support multiple envs; it requires a single vectorized environment.
     #TD3 - ValueError: Error: the model does not support multiple envs; it requires a single vectorized environment.
 
-    parser.add_argument("--log", type=str2bool, default=True)
-    parser.add_argument("--neptune_api_token", type=str)
+    parser.add_argument("--log", type=str2bool, default=True, help='when debuging you might not want to log things to neptune.ai')
+    parser.add_argument("--neptune_api_token", type=str, help='your API key for neptune ai. It\'s free and neat. https://neptune.ai/')
 
     args = parser.parse_args()
     return args
@@ -107,7 +107,7 @@ def go(args):
     model_path = args.model_path
 
     if neptune_api_token is None:
-        print("since neptune api token is None i can't log shit")
+        print("since neptune api token is None i can't log much")
         log = False
 
     experiment_main(
