@@ -51,7 +51,7 @@ To compare results I used [Neptune.AI](https://neptune.ai/) console (it's free a
 
 ##### Tensorboard
 
-![](/imgs/tensorboard.png | width=500)
+![](/imgs/tensorboard.png)
 
 ##### Text output
 
@@ -73,7 +73,7 @@ Episode length: 100.00 +/- 0.00
 ```
 ##### Error bar
 
-![]("/imgs/errorbar.png" | width=500)
+![]("/imgs/errorbar.png")
 
 ## Example parameters
 ```
