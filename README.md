@@ -9,7 +9,7 @@
 
 ## What is it about?
 
-Using the library [Stable-Baselines](https://github.com/hill-a/stable-baselines) and data football [Beat The Bookie: Odds Series Football Dataset](https://www.kaggle.com/austro/beat-the-bookie-worldwide-football-dataset?select=odds_series_b_matches.csv.gz) this was an attempt to let agent learn how to bet to not lose.
+Using the library [Stable-Baselines](https://github.com/hill-a/stable-baselines) and data football [Beat The Bookie: Odds Series Football Dataset](https://www.kaggle.com/austro/beat-the-bookie-worldwide-football-dataset?select=odds_series_b_matches.csv.gz) this was an attempt to let agent learn how to bet win in a long run.
 
 <details><summary>SPOILER ALERT!</summary>
 <p>
@@ -25,11 +25,11 @@ Only average odds at closing time were used.
 
 Average odds at closing time and current bankroll. I also added wrapper that adds predictions on winner (given odds) using tiny, classical supervised network on different dataset but still let RL agent make decision what and how much to bet.
 
-<img src="./imgs/graph.bmp" alt="drawing" width="500"/>
+<img src="./imgs/graph.bmp" alt="graph" width="500"/>
 
 Therefore state representation eventually became a vector of 7 numbers:
  * normalized bankroll (how close to losing agent is)
- * bookies odds for home team, away team and draw
+ * bookies odds for home team, away team and draw (normalized or not)
  * chances of each outcome according to my supervised network (this is not the best model - only 0.44 F1 score on the same dataset)  
 
 ## Environment
@@ -45,10 +45,10 @@ It even has tests in `tests/betting_env_tests`!
 To compare results I used [Neptune.AI](https://neptune.ai/) console (it's free and fun) for single number comparison in addition to good old error bars, tensorboard and bunch of txt file.
 
 ##### Neptune.ai console
-<img src="./imgs/neptune.png" alt="drawing" width="500" align="left"/>
+<img src="./imgs/neptune.jpg" alt="neptune" width="500" align="left"/>
 
 ##### Tensorboard
-<img src="./imgs/tensorboard.png" alt="drawing" width="500" align="left"/>
+<img src="./imgs/tensorboard.jpg" alt="tensorboard" width="500" align="left"/>
 
 ##### Text output
 ```
@@ -68,7 +68,7 @@ Episode length: 100.00 +/- 0.00
 ...
 ```
 ##### Error bar
-<img src="./imgs/errorbar.png" alt="drawing" width="500" align="left"/>
+<img src="./imgs/errorbar.jpg" alt="errorbar" width="500" align="left"/>
 
 
 ## Example parameters
