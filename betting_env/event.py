@@ -6,6 +6,7 @@ class Event:
     """
     Single record representation
     """
+
     def __init__(
         self,
         event_id: int,

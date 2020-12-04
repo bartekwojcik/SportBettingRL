@@ -28,6 +28,14 @@ def get_num_actions() -> int:
 def int_to_actions(value: int) -> Tuple[int, float]:
     return action_map[value]
 
-def action_to_int(  action_tuple)-> int:
-    action_index =  next((index for index, dict_action in action_map.items() if action_tuple == dict_action), None)
+
+def action_to_int(action_tuple) -> int:
+    action_index = next(
+        (
+            index
+            for index, dict_action in action_map.items()
+            if action_tuple == dict_action
+        ),
+        None,
+    )
     return action_index

@@ -6,6 +6,7 @@ class TrajectoryMemory:
     """
     Memorizes event_index -> action -> rewards -> done tuples
     """
+
     def __init__(self):
         self._memory = []
         self._current_trajectory = []

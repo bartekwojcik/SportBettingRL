@@ -21,10 +21,9 @@ class BettingEnv(gym.Env):
         bankroll: float,
         reward_calculator: DecimalRewardCalculator,
         losing_limit: float = 0.0,
-        winning_limit:float = 200,
+        winning_limit: float = 200,
         seed: int = 0,
-        seed_end_range:int = 20000
-
+        seed_end_range: int = 20000,
     ):
         self.seed_end_range = seed_end_range
         self.winning_limit = winning_limit
@@ -57,8 +56,17 @@ class BettingEnv(gym.Env):
         )
         agent_reached_wining_limit = self.bankroll >= self.winning_limit
         if agent_reached_wining_limit:
-            print('wooooooooow, agent reached winning limit. Bankroll:', self.bankroll, 'Limit: ', self.winning_limit)
-        return agent_lost_money or (not is_next_event_available) or agent_reached_wining_limit
+            print(
+                "wooooooooow, agent reached winning limit. Bankroll:",
+                self.bankroll,
+                "Limit: ",
+                self.winning_limit,
+            )
+        return (
+            agent_lost_money
+            or (not is_next_event_available)
+            or agent_reached_wining_limit
+        )
 
     def _did_agent_win_bet(
         self,
@@ -124,9 +132,7 @@ class BettingEnv(gym.Env):
 
         return total_reward
 
-    def step(
-        self, action_int: int
-    ) -> typing.Tuple[EnvState, float, bool, typing.Dict]:
+    def step(self, action_int: int) -> typing.Tuple[EnvState, float, bool, typing.Dict]:
         """
         Step
 
@@ -202,7 +208,7 @@ class BettingEnv(gym.Env):
 
         end = self.seed + self.seed_end_range
         new_start = random.randint(self.seed, end)
-        self.current_event_index = new_start#self.seed
+        self.current_event_index = new_start  # self.seed
         self.state = self._get_state_by_index(self.current_event_index)
 
         # todo replace to_small_vector with normal

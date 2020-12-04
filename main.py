@@ -1,4 +1,4 @@
-from exp.main import experiment_main
+from exp.experiment_main import experiment_main
 from exp.algorithm_registry import AlgorithmRegistry
 from exp.utils.misc import str2bool
 import argparse

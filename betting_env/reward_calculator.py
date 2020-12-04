@@ -31,10 +31,10 @@ class DecimalRewardCalculator:
 
 class NormalizedRewardCalculator:
     def calculate_reward(
-            self, bet_amount: float, reward_odds: float, won: bool
+        self, bet_amount: float, reward_odds: float, won: bool
     ) -> float:
-        #problem here is that this calculator does not return real money to the bankroll -
-        #it was supposed to reuturn real reward to environment to update bankroll and normalised to Algorithm but forgot about the first part 11
+        # problem here is that this calculator does not return real money to the bankroll -
+        # it was supposed to reuturn real reward to environment to update bankroll and normalised to Algorithm but forgot about the first part 11
         won = int(won)
         investment = bet_amount
         payout = (bet_amount * reward_odds) * won
@@ -43,6 +43,8 @@ class NormalizedRewardCalculator:
 
         truncated = truncate(total_reward, 2)
 
-        normalized = (truncated - bet_amount) / bet_amount if bet_amount != 0 else truncated
+        normalized = (
+            (truncated - bet_amount) / bet_amount if bet_amount != 0 else truncated
+        )
 
         return normalized

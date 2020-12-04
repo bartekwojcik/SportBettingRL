@@ -8,11 +8,7 @@ class KerasWrapperEnv(gym.Env):
     Wrapper for Betting Environment that uses pretrained keras model to predict which team will winn based only on bookmakers odds.
     """
 
-    def __init__(
-            self,
-            env: gym.Env,
-            keras_model
-    ):
+    def __init__(self, env: gym.Env, keras_model):
         """
         :param env: original env
         :param keras_model: loaded keras model
@@ -23,12 +19,14 @@ class KerasWrapperEnv(gym.Env):
         self.observation_space = self.env.observation_space
 
     def step(
-            self, action_int: int
+        self, action_int: int
     ) -> typing.Tuple[np.ndarray, float, bool, typing.Dict]:
         state, total_reward, done, _ = self.env.step(action_int)
         norm_odds = state[1:]
         normalized_bankroll = state[0].reshape(-1,)
-        prediction = self.keras_model.predict(np.array(norm_odds).reshape(1, -1)).reshape(-1, )
+        prediction = self.keras_model.predict(
+            np.array(norm_odds).reshape(1, -1)
+        ).reshape(-1,)
 
         vector_with_predictions = np.concatenate((normalized_bankroll, prediction))
 

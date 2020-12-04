@@ -2,9 +2,7 @@ import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 from typing import Dict, List, Union, Optional
 
-from betting_env.data_loading_strategies.csv_column_mapping import (
-    CsvColumnsMappings,
-)
+from betting_env.data_loading_strategies.csv_column_mapping import CsvColumnsMappings
 from betting_env.event import Event
 import multiprocessing
 import dask.dataframe as dd

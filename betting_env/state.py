@@ -2,6 +2,7 @@ import numpy as np
 from betting_env.event import Event
 from sklearn.preprocessing import normalize
 
+
 class EnvState:
     """
     Representation of state in environment
@@ -61,14 +62,19 @@ class EnvState:
         :return:
         """
 
-        norm_odds = normalize(np.array([self.draw_odds, self.away_odds, self.home_odds]).reshape(1,-1)).reshape(-1,)
-        normalized_bankroll = np.array([self.current_bankroll / initial_bankroll]) if initial_bankroll != 0 else self.current_bankroll
+        norm_odds = normalize(
+            np.array([self.draw_odds, self.away_odds, self.home_odds]).reshape(1, -1)
+        ).reshape(-1,)
+        normalized_bankroll = (
+            np.array([self.current_bankroll / initial_bankroll])
+            if initial_bankroll != 0
+            else self.current_bankroll
+        )
         vector = np.concatenate((normalized_bankroll, norm_odds))
 
         return vector
 
-
-    def get_original_event(self)->Event:
+    def get_original_event(self) -> Event:
         """
         :return: Original event with all it's information
         """
