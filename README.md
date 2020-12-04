@@ -9,7 +9,7 @@
 
 ## What is it about?
 
-Using the library [Stable-Baselines](https://github.com/hill-a/stable-baselines) and football data [Beat The Bookie: Odds Series Football Dataset](https://www.kaggle.com/austro/beat-the-bookie-worldwide-football-dataset?select=odds_series_b_matches.csv.gz) this was an attempt to let agent learn how to bet win in a long run.
+Using the library [Stable-Baselines](https://github.com/hill-a/stable-baselines) and football data [Beat The Bookie: Odds Series Football Dataset](https://www.kaggle.com/austro/beat-the-bookie-worldwide-football-dataset?select=odds_series_b_matches.csv.gz) this was an attempt to let agent learn how to bet and win in a long run.
 
 <details><summary>SPOILER ALERT!</summary>
 <p>
