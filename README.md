@@ -36,9 +36,10 @@ Therefore state representation eventually became a vector of 7 numbers:
 
 Environment (located in `betting_env/environment/betting_environment.py`) implements [OpenAI gym](https://gym.openai.com/docs/) interface. Environment accepts only discrete actions defined as in `betting_env/environment/actions.py`.
 Epoch ends when either winning limit is reached (for instance double of initial bankroll) or when all the matches from dataset has been played (hasn't happen).
+It even has tests in `tests/betting_env_tests`!
 
 Wrappers for state normalization and keras model are in the same folder.
-It even has tests in `tests/betting_env_tests`!
+
 
 ## Metrics
 
@@ -73,7 +74,7 @@ Episode length: 100.00 +/- 0.00
 ```
 ##### Error bar
 
-![]("/imgs/errorbar.png")
+![](/imgs/errorbar.png)
 
 ## Example parameters
 ```
