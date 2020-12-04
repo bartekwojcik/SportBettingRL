@@ -46,11 +46,14 @@ To compare results I used [Neptune.AI](https://neptune.ai/) console (it's free a
 
 ##### Neptune.ai console
 <img src="./imgs/neptune.jpg" alt="neptune" width="500" align="left"/>
+<br/>
 
 ##### Tensorboard
 <img src="./imgs/tensorboard.jpg" alt="tensorboard" width="500" align="left"/>
+<br/>
 
 ##### Text output
+
 ```
 'all algoritms and hyperparameters to be tested:'
 {'A2C': [{'lr_schedule': 'linear', 'policy': 'MlpPolicy'}],
@@ -69,7 +72,7 @@ Episode length: 100.00 +/- 0.00
 ```
 ##### Error bar
 <img src="./imgs/errorbar.jpg" alt="errorbar" width="500" align="left"/>
-
+<br/>
 
 ## Example parameters
 ```
