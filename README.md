@@ -45,12 +45,18 @@ It even has tests in `tests/betting_env_tests`!
 To compare results I used [Neptune.AI](https://neptune.ai/) console (it's free and fun) for single number comparison in addition to good old error bars, tensorboard and bunch of txt file.
 
 ##### Neptune.ai console
+<p align="center">
 <img src="./imgs/neptune.jpg" alt="neptune" width="500" align="left"/>
 <br/>
+</p>
+
 
 ##### Tensorboard
+
+<p align="center">
 <img src="./imgs/tensorboard.jpg" alt="tensorboard" width="500" align="left"/>
 <br/>
+</p>
 
 ##### Text output
 
@@ -71,8 +77,11 @@ Episode length: 100.00 +/- 0.00
 ...
 ```
 ##### Error bar
+
+<p align="center">
 <img src="./imgs/errorbar.jpg" alt="errorbar" width="500" align="left"/>
 <br/>
+</p>
 
 ## Example parameters
 ```
