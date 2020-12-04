@@ -13,13 +13,13 @@ from betting_env.environment.keras_wrapper import KerasWrapperEnv
 from betting_env.environment.normalize_state_wrapper import NormalizeStateWrapper
 
 
-def get_env_function(PATH_TO_MODEL:str,PATH_TO_DATA:str=None, )->BettingEnv:
+def get_env_function(PATH_TO_MODEL:str,PATH_TO_DATA:str=None, ):
     """
-    Creates and loads Betting environment
+    Creates and loads Betting environment.
 
     :param PATH_TO_MODEL: path to keras model
     :param PATH_TO_DATA: path to CSV file
-    :return: BettingEnv instance with wrappers
+    :return: Function that creates gym.Env, string name of this env for loggin, and dictionaries of parameters
     """
 
 
@@ -65,6 +65,7 @@ def get_env_function(PATH_TO_MODEL:str,PATH_TO_DATA:str=None, )->BettingEnv:
             bankroll=bankroll,
             reward_calculator=reward_calculator,
             seed=seed,
+            seed_end_range=seed+1000,
             winning_limit=winning_limit,
 
         )
@@ -75,15 +76,16 @@ def get_env_function(PATH_TO_MODEL:str,PATH_TO_DATA:str=None, )->BettingEnv:
 
         return keras_wrapper
 
-
+    #they have to match paramters of make_env function
     train_env_parameters_dict = {"seed": 0, "bankroll": 100,'winning_limit':150}
     eval_env_parameters_dict = {"seed": 20000, "bankroll": 100,'winning_limit':150}
     test_env_parameters_dict = {"seed": 40000, "bankroll": 100,'winning_limit':150}
 
     return (
-        make_env,
-        "BettingEnv",
-        train_env_parameters_dict,
-        eval_env_parameters_dict,
-        test_env_parameters_dict,
+        make_env, #function that returns gym.Env instance
+        "BettingEnv", #string name of this environment for logging purpouse
+        train_env_parameters_dict, # dictionary of parameters to be passed to make_env function when creating train set
+        eval_env_parameters_dict, # dictionary of parameters to be passed to make_env function when creating eval set
+        test_env_parameters_dict,# dictionary of parameters to be passed to make_env function when creating test set
     )
+

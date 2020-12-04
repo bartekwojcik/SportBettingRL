@@ -207,8 +207,8 @@ class BettingEnv(gym.Env):
         self.bankroll = self.INITIAL_BANKROLL
 
         end = self.seed + self.seed_end_range
-        new_start = random.randint(self.seed, end)
-        self.current_event_index = new_start  # self.seed
+        new_start = random.randint(self.seed, end)  #for random starting point
+        self.current_event_index = new_start
         self.state = self._get_state_by_index(self.current_event_index)
 
         # todo replace to_small_vector with normal
