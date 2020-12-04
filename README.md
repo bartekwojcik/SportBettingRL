@@ -46,7 +46,7 @@ To compare results I used [Neptune.AI](https://neptune.ai/) console (it's free a
 
 ##### Neptune.ai console
 
-![]("./imgs/neptune.jpg" | width=500)
+![]("./imgs/neptune.jpg")
 
 
 ##### Tensorboard
