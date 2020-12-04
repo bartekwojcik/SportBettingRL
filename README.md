@@ -11,25 +11,17 @@
 
 Using the library [Stable-Baselines](https://github.com/hill-a/stable-baselines) and data football [Beat The Bookie: Odds Series Football Dataset](https://www.kaggle.com/austro/beat-the-bookie-worldwide-football-dataset?select=odds_series_b_matches.csv.gz) this was an attempt to let agent learn how to bet to not lose.
 
-#### Spoiler alert!
-
+<details><summary>####Spoiler alert!</summary>
+<p>
 <i>I'm still poor </i>
+</p>
+</details>
 
 ## What was in the data?
 
 Only average odds at closing time were used. I also added wrapper that adds predictions on winner (given odds) using classical supervised network on different dataset.
 
-<details><summary>CLICK ME</summary>
-<p>
 
-#### yes, even hidden code blocks!
-
-```python
-print("hello world!")
-```
-
-</p>
-</details>
 
 
 
