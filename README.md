@@ -1,7 +1,7 @@
 # Reinforcement Learning for Sports betting
 
 <p align="center">
-  <i>How I discovered that I won't be a milioner that easily</i>
+  <i>How I discovered that I won't be a millionaire that easily</i>
   <br/>
  <img src="./imgs/balon-en-la-cara.jpg" alt="drawing" width="200"/>
 </p>
@@ -9,7 +9,7 @@
 
 ## What is it about?
 
-Using the library [Stable-Baselines](https://github.com/hill-a/stable-baselines) and data football [Beat The Bookie: Odds Series Football Dataset](https://www.kaggle.com/austro/beat-the-bookie-worldwide-football-dataset?select=odds_series_b_matches.csv.gz) this was an attempt to let agent learn how to bet win in a long run.
+Using the library [Stable-Baselines](https://github.com/hill-a/stable-baselines) and football data [Beat The Bookie: Odds Series Football Dataset](https://www.kaggle.com/austro/beat-the-bookie-worldwide-football-dataset?select=odds_series_b_matches.csv.gz) this was an attempt to let agent learn how to bet win in a long run.
 
 <details><summary>SPOILER ALERT!</summary>
 <p>
